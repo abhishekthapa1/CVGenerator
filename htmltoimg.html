@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Convert HTML To Image</title>
+    <link rel="stylesheet" href="css/Bootstrap5.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js">
+    </script>
+  </head>
+  <style media="screen">
+    #htmlContent{
+      background: lightblue;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+     
+    }
+   
+  .displa {
+    font-size: 1.5rem;
+    font-family: monospace, sans-serif;
+    font-weight: 200;
+  }
+
+  .nav-link {
+    font-size: 1.3rem;
+    font-weight: 100;
+  }
+
+  .col-md-10 {
+    background-image: url("images/aaron-burden-y02jEX_B0O0-unsplash.png");
+    height: 100vh;
+    object-fit: contain;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 1.1rem;
+    font-family: monospace, sans-serif;
+  }
+
+  table {
+    margin-top: 20%;
+    font-size: 1.3rem;
+
+  }
+
+  .smallscreen {
+    display: none;
+  }
+
+  @media(max-width:769px) {
+    .largescreen {
+      display: none;
+
+    }
+
+    .smallscreen {
+      display: block;
+    }
+
+  }
+</style>
+  </style>
+  <body onload = "autoClick();">
+
+    <div id = "htmlContent">
+      <div class="container-fluid">
+        <div class="row">
+    
+          <div class="col-md-2 px-0 bg-light min-vh-100 text-white bg-dark p-2 largescreen">
+            <a class="list-group-items text-decoration-none text-light " href="index.php">
+              <div class="text-center">
+                <img src="images/472-4722444_cv-png.png" alt="" width="80" height="80" class="mt-4 mycvpng">
+                <br>
+                <span class="displa">MyCV</span>
+              </div>
+            </a>
+    
+            <ul class="nav nav-pills flex-column mb-auto my-5">
+              <hr>
+              <li class="nav-item ">
+                <a href="index.php" class="nav-link text-white">
+    
+                  <i class="fas fa-home me-2"></i>Home
+                </a>
+              </li>
+              <li>
+                <a href="Signup.php" class="nav-link text-white">
+    
+                  <i class="fas fa-user-plus me-2"></i>Signup
+                </a>
+              </li>
+              <li>
+                <a href="Signup.php" class="nav-link active text-white">
+    
+                  <i class="fas fa-file-alt me-2"></i>Options
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-light">
+    
+                  <i class="fas fa-sign-out-alt me-2"></i>Logout
+                </a>
+              </li>
+    
+            </ul>
+            <hr>
+    
+          </div>
+          <div class="col-md-2 px-0 bg-light text-white bg-dark p-2 smallscreen">
+            <a class="list-group-items text-decoration-none text-light " href="index.php">
+              <div class="text-center">
+                <img src="images/472-4722444_cv-png.png" alt="" width="50" height="50" class="ycvpng">
+                <br>
+                <span class="displa">MyCV</span>
+              </div>
+            </a>
+    
+            <ul class="nav nav-pills flex-column mb-auto my-5 mt-0 text">
+              <hr>
+              <li class="nav-item ">
+                <a href="index.php" class="nav-link text-white">
+    
+                  <i class="fas fa-home me-2"></i>Home
+                </a>
+              </li>
+              <li>
+                <a href="Signup.php" class="nav-link text-white">
+    
+                  <i class="fas fa-user-plus me-2"></i>Signup
+                </a>
+              </li>
+              <li>
+                <a href="Signup.php" class="nav-link active text-white">
+    
+                  <i class="fas fa-file-alt me-2"></i>Options
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-light">
+    
+                  <i class="fas fa-sign-out-alt me-2"></i>Logout
+                </a>
+              </li>
+    
+            </ul>
+            <hr>
+    
+          </div>
+          <div class="col-md-10">
+            <table class="table table-dark table-hover ">
+              <thead>
+                <tr>
+                  <th scope="col">S.N</th>
+                  <th scope="col">CV Name</th>
+                  <th scope="col">Options</th>
+    
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>
+                    <a href="output.php"><i class="fas fa-eye text-warning  ms-2"></i></a>
+                    <a href="update.php"><i class="fas fa-edit text-info ms-2"></i> </a>
+                    <a href="delete.php"><i class="fas fa-trash-alt text-danger me-2"></i></a>
+                  </td>
+    
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>
+                    <a href="output.php"><i class="fas fa-eye text-warning  ms-2"></i></a>
+                    <a href="update.php"><i class="fas fa-edit text-info ms-2"></i> </a>
+                    <a href="delete.php"><i class="fas fa-trash-alt text-danger me-2"></i></a>
+                  </td>
+    
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Larry the Bird</td>
+                  <td>
+                    <a href="output.php"><i class="fas fa-eye text-warning  ms-2"></i></a>
+                    <a href="update.php"><i class="fas fa-edit text-info ms-2"></i> </a>
+                    <a href="delete.php"><i class="fas fa-trash-alt text-danger me-2"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    
+        </div>
+      </div>
+    </div>
+   <a id="download">download</a>
+    <script type="text/javascript">
+      function autoClick(){
+        $("#download").click();
+      }
+
+      $(document).ready(function(){
+        var element = $("#htmlContent");
+
+        $("#download").on('click', function(){
+
+          html2canvas(element, {
+            onrendered: function(canvas) {
+              var imageData = canvas.toDataURL("image/jpg");
+              var newData = imageData.replace(/^data:image\/jpg/, "data:application/octet-stream");
+              $("#download").attr("download", "image.jpg").attr("href", newData);
+            }
+          });
+
+        });
+      });
+    </script>
+  </body>
+</html>

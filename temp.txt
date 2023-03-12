@@ -1,0 +1,207 @@
+
+<?php
+session_start();
+
+if(!isset($_SESSION['user_session'])){
+    header("Location:index.php");
+}
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Generator | Dashboard</title>
+  <link rel="stylesheet" href="css/Bootstrap5.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+  .displa {
+    font-size: 1.5rem;
+    font-family: monospace, sans-serif;
+    font-weight: 200;
+  }
+
+  .nav-link {
+    font-size: 1.3rem;
+    font-weight: 100;
+  }
+
+  .col-md-10 {
+    /* background-image: url("images/aaron-burden-y02jEX_B0O0-unsplash.png"); */
+    height: 100vh;
+    object-fit: contain;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 1.1rem;
+    font-family: monospace, sans-serif;
+  }
+
+  table {
+    margin-top: 20%;
+    font-size: 1.3rem;
+
+  }
+
+  .smallscreen {
+    display: none;
+  }
+
+  @media(max-width:769px) {
+    .largescreen {
+      display: none;
+
+    }
+
+    .smallscreen {
+      display: block;
+    }
+
+  }
+</style>
+</head>
+
+
+<body>
+<div class="container-fluid">
+    <div class="row">
+
+      <div class="col-md-2 px-0 bg-light min-vh-100 text-white bg-dark p-2 largescreen">
+        <a class="list-group-items text-decoration-none text-light " href="index.php">
+          <div class="text-center">
+            <img src="images/472-4722444_cv-png.png" alt="" width="80" height="80" class="mt-4 mycvpng">
+            <br>
+            <span class="displa">MyCV</span>
+          </div>
+        </a>
+
+        <ul class="nav nav-pills flex-column mb-auto my-5">
+          <hr>
+          <li class="nav-item ">
+            <a href="dashboard.php" class="nav-link text-white active">
+
+              <i class="fas fa-home me-2"></i>Dasbhoard
+            </a>
+          </li>
+          <li>
+            <a href="cvform_input.php" class="nav-link text-white">
+            <i class="fas fa-plus me-2"></i>Create New CV
+            </a>
+          </li>
+          <li>
+            <a href="logout.php" class="nav-link text-light">
+
+              <i class="fas fa-sign-out-alt me-2"></i>Logout
+            </a>
+          </li>
+
+        </ul>
+        <hr>
+
+      </div>
+      <div class="col-md-2 px-0 bg-light text-white bg-dark p-2 smallscreen">
+        <a class="list-group-items text-decoration-none text-light " href="index.php">
+          <div class="text-center">
+            <img src="images/472-4722444_cv-png.png" alt="" width="50" height="50" class="ycvpng">
+            <br>
+            <span class="displa">MyCV</span>
+          </div>
+        </a>
+
+        <ul class="nav nav-pills flex-column mb-auto my-5 mt-0 text">
+          <hr>
+          <li class="nav-item ">
+            <a href="index.php" class="nav-link text-white">
+
+              <i class="fas fa-home me-2"></i>Home
+            </a>
+          </li>
+          <li>
+            <a href="Signup.php" class="nav-link text-white">
+
+              <i class="fas fa-user-plus me-2"></i>Signup
+            </a>
+          </li>
+          <li>
+            <a href="Signup.php" class="nav-link active text-white">
+
+              <i class="fas fa-file-alt me-2"></i>Options
+            </a>
+          </li>
+          <li>
+            <a href="logout.php" class="nav-link text-light">
+
+              <i class="fas fa-sign-out-alt me-2"></i>Logout
+            </a>
+          </li>
+
+        </ul>
+        <hr>
+
+      </div>
+
+      <div class="col-md-10">
+
+            <?php
+                include 'db_conn.php';
+                $user_id= $_SESSION['user_id'];
+
+                $sql = "SELECT * from cvinput where user_cvid = '$user_id'";
+                $result = $conn->query($sql);
+                if($result->num_rows==0)
+                      {
+                        ?>
+                      <div>
+                        <img src="images/not_found.jpeg" height="400" width="600">
+                        <a href="cvform_input.php">Create New CV Now</a>
+                      </div>
+                <?php
+                      }
+                      else {
+                      
+                        ?>
+                        <thead>
+                        <tr>
+                          <th scope="col">S.N</th>
+                          <th scope="col">CV Name</th>
+                          <th scope="col">Options</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                      $i=0;
+                      while($row = $result->fetch_assoc()) {
+                              $i++;
+                                $cv_title=$row['firstname'];
+                                
+                              ?>
+                <tr>
+              <th scope="row"><?php echo $i;?></th>
+              <td><?php echo $cv_title; ?></td>
+              <td>
+                <a href="output.php" class="text-decoration-none"><i class="fas fa-eye text-warning  ms-2"></i></a>
+                <a href="update.php" class="text-decoration-none"><i class="fas fa-edit text-info ms-2"></i> </a>
+                <a href="delete.php" class="text-decoration-none"><i class="fas fa-trash-alt text-danger me-2"></i></a>
+              </td>
+            </tr>
+            <?php
+                            }
+                          }
+                          ?>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
+ 
