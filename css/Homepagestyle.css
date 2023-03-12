@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap');
+body,
+html {
+    height: 100%;
+    scroll-behavior: smooth;
+    /* display: none; */
+   font-family: Montserrat,sans-serif;
+}
+
+*{
+    margin: 0;
+    padding:0;
+ }
+
+
+.parallax,
+.parallaxone{
+    background-image: url('../images/Tips-to-Create-the-Perfect-CV-Resume.png');
+    height: 100vh ;
+    object-fit: contain;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* .content {
+    height: 200px;
+    background-color: #ffffff;
+    opacity: 90%;
+    font-family: monospace,sans-serif;
+} */
+
+.parallaxone {
+    background-image: url('../images/pexels-johannes-plenio-2850287.jpg');
+    height: 100vh ;
+    object-fit: contain;
+
+}
+
+.btns ,.btnone{
+    position: absolute;
+    top: 90%;
+    left: 39%;
+    text-transform: uppercase;
+    background-color: #000000;
+    padding: 15px 20px;
+    font-size: 20px;
+    color: #ffffff;
+    letter-spacing: 0.6rem;
+    font-weight: 900;
+}
+
+.centers,.center {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    text-transform: uppercase;
+    padding: 15px 20px;
+    font-size: 20px;
+    letter-spacing: 0.6rem;
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: 900;
+}
+.btnone{
+top:40%;
+left:34%;
+font-size: 20px;
+}
+.center{
+    top:40%;
+    left: 51.5%;
+    font-size: 20px;
+}
+.btn-primary,.btn-success{
+    width: 100%;
+    border-radius: 0;
+    
+}
+.card{
+    box-shadow:0 10px 20px rgba(0,0,0.3);
+}
+/* .mainpage{
+    height: 100vh;
+} */
+.footer{
+    /* margin-top:-19.5vh; */
+    background-color: #3D3D3D;
+    color: #ffffff;
+}
+.btn{
+    width: 80%;
+  
+}
+#footermy{
+    margin-left:10px;
+    font-weight: 900;
+}
+@media screen and (min-width:992px) {
+
+    body {
+        font-size: 1rem;
+    }
+}
